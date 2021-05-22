@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="55063" started-at="2021-05-22T18:06:18Z" finished-at="2021-05-22T18:07:13Z">
+  <suite name="Suite" duration-ms="24526" started-at="2021-05-22T18:29:19Z" finished-at="2021-05-22T18:29:43Z">
     <groups>
     </groups>
-    <test name="BirstExercise" duration-ms="55063" started-at="2021-05-22T18:06:18Z" finished-at="2021-05-22T18:07:13Z">
-      <class name="com.birst.excercise.testscripts.BirstVerification">
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.birst.excercise.testscripts.BirstVerification@2b98378d]" name="launchBrowser" is-config="true" duration-ms="9883" started-at="2021-05-22T18:06:18Z" finished-at="2021-05-22T18:06:28Z">
+    <test name="InforAssessment" duration-ms="24526" started-at="2021-05-22T18:29:19Z" finished-at="2021-05-22T18:29:43Z">
+      <class name="com.birst.testscripts.BirstVerification">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.birst.testscripts.BirstVerification@2b98378d]" name="launchBrowser" is-config="true" duration-ms="6083" started-at="2021-05-22T18:29:19Z" finished-at="2021-05-22T18:29:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="verifyBirst()[pri:0, instance:com.birst.excercise.testscripts.BirstVerification@2b98378d]" name="verifyBirst" duration-ms="44398" started-at="2021-05-22T18:06:28Z" finished-at="2021-05-22T18:07:12Z">
+        <test-method status="PASS" signature="verifyBirst()[pri:0, instance:com.birst.testscripts.BirstVerification@2b98378d]" name="verifyBirst" duration-ms="17367" started-at="2021-05-22T18:29:25Z" finished-at="2021-05-22T18:29:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyBirst -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.birst.excercise.testscripts.BirstVerification@2b98378d]" name="closeBrowser" is-config="true" duration-ms="759" started-at="2021-05-22T18:07:12Z" finished-at="2021-05-22T18:07:13Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.birst.testscripts.BirstVerification@2b98378d]" name="closeBrowser" is-config="true" duration-ms="1046" started-at="2021-05-22T18:29:42Z" finished-at="2021-05-22T18:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- com.birst.excercise.testscripts.BirstVerification -->
-    </test> <!-- BirstExercise -->
+      </class> <!-- com.birst.testscripts.BirstVerification -->
+    </test> <!-- InforAssessment -->
   </suite> <!-- Suite -->
 </testng-results>

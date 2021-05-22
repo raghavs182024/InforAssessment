@@ -1,4 +1,4 @@
-package com.birst.excercise.testsuite;
+package com.birst.testsuite;
 
 import java.io.File;
 import java.io.FileInputStream;

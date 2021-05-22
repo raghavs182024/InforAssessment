@@ -1,10 +1,11 @@
-package com.birst.excercise.testscripts;
+package com.birst.testscripts;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.birst.excercise.testsuite.TestSuiteBase;
-import com.birst.excercise.utils.Homepage;
+
+import com.birst.testsuite.TestSuiteBase;
+import com.birst.utils.Homepage;
 
 public class BirstVerification extends TestSuiteBase {
 	Homepage homepage=new Homepage();
