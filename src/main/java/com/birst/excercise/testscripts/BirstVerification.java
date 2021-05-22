@@ -7,41 +7,44 @@ import com.birst.excercise.testsuite.TestSuiteBase;
 import com.birst.excercise.utils.Homepage;
 
 public class BirstVerification extends TestSuiteBase {
-	static Homepage homepage=new Homepage();
+	Homepage homepage=new Homepage();
+	
 	@BeforeTest
 	public void launchBrowser() {
+		// Calling the below function to launch the web browser and open the specified webSite
 		openBrowser();
 	}
 	
 	@AfterTest
 	public void closeBrowser() {
+		// Calling the below function to quit all the current browser windows
 		quitBrowser();
 	}
 	
 	@Test
 	public void verifyBirst() {
-		//Title verification after launching browser
-		homepage.pageTitleVerfication();
+		// Calling the below function to verify the title of the current webPage
+		homepage.verifyPageTitle();
 		
-		//Enter text on google search
-		homepage.enterTextonGoogleSearch();
+		// Calling the below function to Enter the text on google search box
+		homepage.enterTextOnGoogleSearch();
 		
-		//Checking same text which available or not
+		// Calling the below function to verify whether the google search results are displayed with the desired URL
 		homepage.verifySearchResultsAndClick();
 		
-		//Logo verification
-		homepage.logoVerification();
+		// Calling the below function to verify whether the Infor's logo is displayed on the home Page.
+		homepage.verifyLogoDisplayed();
 		
-		//Click on Resources
-		homepage.clickOnResource();
+		// Calling the below function to Click on Resources link
+		homepage.clickOnResourcesLink();
 		
-		//Birst Filter from all products
+		// Calling the below function to select the product value from the All Products drop-down list
 		homepage.selectProduct();
 		
-		//Past Webinars filter selection
+		// Calling the below function to select the asset value from the All Assets drop-down list
 		homepage.selectAsset();
 		
-		//Webinars text verification after filtering
+		// Calling the below function to verify whether the desired output is displayed in the filter results
 		homepage.verifyFilterResults();
 		
 	}

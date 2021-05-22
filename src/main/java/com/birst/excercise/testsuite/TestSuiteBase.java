@@ -16,8 +16,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class TestSuiteBase {
 	
 	public static WebDriver driver;
-	String propertyFilePath = "resources" + File.separator + "config.properties";
 	
+	// Purpose: This function is to load the properties from the given file path
 	public static Properties loadProperties(String propertyFilePath ) { 
 		 File file=new File(propertyFilePath);
 		 
@@ -40,13 +40,14 @@ public class TestSuiteBase {
 		 return prop; 
 	}
 
-	public void openBrowser() {
-		Properties prop = new Properties();
-		prop = loadProperties("resources" + File.separator + "config.properties");
-		
-		String Browser = prop.getProperty("browser");
-		String url = prop.getProperty("url");
-		Long wait_time = Long.parseLong(prop.getProperty("IMPLICIT_WAIT"));
+	public static Properties homepage=loadProperties("resources"+File.separator+"pageobjects"+File.separator+"HomePage.properties");
+	public static Properties configProp=loadProperties("resources" + File.separator + "config.properties");
+	
+	// Purpose: This function is to launch the desired browser and open the URL
+	public void openBrowser() {		
+		String Browser = configProp.getProperty("browser");
+		String url = configProp.getProperty("url");
+		Long wait_time = Long.parseLong(configProp.getProperty("IMPLICIT_WAIT"));
 		
 		if (Browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "lib" + File.separator + "chromedriver.exe");
@@ -65,6 +66,7 @@ public class TestSuiteBase {
 
 	}
 	
+	// Purpose: This function is to close the browser
 	public void quitBrowser() {
 		driver.quit();
 	}

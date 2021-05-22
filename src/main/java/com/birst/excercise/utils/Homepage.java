@@ -1,10 +1,7 @@
 package com.birst.excercise.utils;
 
-import java.io.File;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -13,23 +10,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import com.birst.excercise.testsuite.TestSuiteBase;
 
 
-public class Homepage  extends TestSuiteBase{
-	static Properties homepage=loadProperties("resources"+File.separator+"pageobjects"+File.separator+"HomePage.properties");
-	static Properties configProp=loadProperties("resources" + File.separator + "config.properties");
-	
+public class Homepage extends TestSuiteBase{	
 	Long implicit_wait_time = Long.parseLong(configProp.getProperty("IMPLICIT_WAIT"));
 	Long explicit_wait_time = Long.parseLong(configProp.getProperty("EXPLICIT_WAIT"));
 	
-	public void pageTitleVerfication() {
+	// Purpose: This function is to verify the page title of the launched webSite
+	public void verifyPageTitle() {
 		driver.manage().timeouts().implicitlyWait(implicit_wait_time, TimeUnit.SECONDS);
 		Assert.assertEquals(driver.getTitle(), "Google");
 	}
 	
-	public void enterTextonGoogleSearch() {
+	// Purpose: This function is to enter the text on google search bar
+	public void enterTextOnGoogleSearch() {
 		String searchField=homepage.getProperty("google_search_field");
 		String searchText=homepage.getProperty("google_search_text");
 		
@@ -39,6 +34,9 @@ public class Homepage  extends TestSuiteBase{
 		searchBox.sendKeys(Keys.ENTER);
 	}
 	
+	/* Purpose: This function is to verify the whether the desired URL is displayed in the google search results. 
+				And, click on it if it's  displayed.
+	*/
 	public void verifySearchResultsAndClick() {
 		String results=homepage.getProperty("google_search_results_list");
 		String textToBePresent=homepage.getProperty("google_search_results_text");
@@ -53,24 +51,27 @@ public class Homepage  extends TestSuiteBase{
 			}
 		}
 		
-		String acceptCookies=homepage.getProperty("btn_accept_cookies");
+		String acceptCookies=homepage.getProperty("accept_cookies_btn");
 		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.id(acceptCookies)));
 		driver.findElement(By.id(acceptCookies)).click();
 	}	
 	
-	public void logoVerification() {
-		String image=homepage.getProperty("birst_logo_img");
-		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(image)));
-		Boolean bool=driver.findElement(By.xpath(image)).isDisplayed();
+	// Purpose: This function is to verify whether the Infor's logo is displayed on the home page
+	public void verifyLogoDisplayed() {
+		String logo=homepage.getProperty("infor_logo_img");
+//		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(logo)));
+		Boolean bool=driver.findElement(By.xpath(logo)).isDisplayed();
 		Assert.assertTrue(bool);
 	}
 	
-	public void clickOnResource() {
-		String resources=homepage.getProperty("birst_resources");
-		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.linkText(resources)));
-		driver.findElement(By.linkText(resources)).click();
+	// Purpose: This function is to click on the resources link from the home page
+	public void clickOnResourcesLink() {
+		String resourcesLink=homepage.getProperty("resources_link");
+		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.linkText(resourcesLink)));
+		driver.findElement(By.linkText(resourcesLink)).click();
 	}
 	
+	// Purpose: This function is to select the desired product from the "All Products" drop-down list
 	public void selectProduct() {
 		String dropdown=homepage.getProperty("product_dropdown");
 		String dropdownValue=homepage.getProperty("product_value");
@@ -82,6 +83,7 @@ public class Homepage  extends TestSuiteBase{
 		new Select(element).selectByVisibleText(dropdownValue);
 	}
 	
+	// Purpose: This function is to select the asset from the "All Assets" drop-down list
 	public void selectAsset() {
 		String dropdown=homepage.getProperty("asset_dropdown");
 		String dropdownValue=homepage.getProperty("asset_value");
@@ -93,9 +95,10 @@ public class Homepage  extends TestSuiteBase{
 		new Select(element).selectByVisibleText(dropdownValue);
 	}
 	
+	// Purpose: This function is to verify whether the desired text is displayed among the filter results
 	public void verifyFilterResults() {
-		String filterResults=homepage.getProperty("filter_results");
-		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(filterResults)));
+		String filterResults=homepage.getProperty("filter_results_text");
+//		new WebDriverWait(driver, explicit_wait_time).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(filterResults)));
 		Boolean bool=driver.findElement(By.xpath(filterResults)).isDisplayed();
 		Assert.assertTrue(bool);
 	}
